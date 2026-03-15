@@ -5,7 +5,7 @@ const AppCard = ({app}) => {
     const {downloads, image, ratingAvg, title, description}=app;
     // const formatDownloads = 
     return (
-        <div className="card bg-white shadow-sm p-5 rounded">
+        <div className="card bg-white shadow-sm p-5 rounded hover:scale-102 cursor-pointer">
             <figure className='bg-[#f1f1f1] p-4'>
                 <img 
                     src={image}

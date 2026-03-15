@@ -22,12 +22,12 @@ const HomePage = () => {
                 </p>
                 <div className='flex justify-center gap-3 mb-6 md:mb-10'>
                     <a href='https://play.google.com/store/games?device=phone&hl=en' target='blank'
-                        className="btn1 border border-gray-300 rounded">
+                        className="btn1 border border-gray-300 rounded hover:scale-103 hover:-translate-y-1 transition-transform duration-200">
                         <img src={googlePlay} alt="" />
                         <span>Google Play</span>
                     </a>
                     <a href='https://apps.apple.com/us/iphone/today' target='blank'
-                        className="btn1 border border-gray-300 rounded">
+                        className="btn1 border border-gray-300 rounded hover:scale-103 hover:-translate-y-1 transition-transform duration-200">
                         <img src={appStore} alt="" />
                         <span>App Store</span>
                     </a>
@@ -80,7 +80,7 @@ const HomePage = () => {
             </section>
             <div className='pb-20 flex justify-center'>
                 <button onClick={()=>navigate('/apps')}
-                className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 transition-opacity duration-200">
+                className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 hover:scale-103 hover:-translate-y-1 transition-all duration-200">
                     Show All
                 </button>
             </div>
