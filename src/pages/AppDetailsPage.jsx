@@ -32,17 +32,17 @@ const AppDetailsPage = () => {
     }
 
     return (
-        <section className="min-h-screen p-4 sm:p-6 md:p-10 bg-gray-50 flex justify-center">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row gap-6">
+        <section className="min-h-screen padding bg-gray-50 flex justify-center">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row gap-3 lg:gap-6">
                 {/* app image */}
-                <div className="md:w-2/5">
+                <div className="md:w-1/3">
                     <img
                         src={clickedApp.image}
                         alt={clickedApp.title}
-                        className="w-full h-64 md:h-full object-cover rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
+                        className="w-full h-64 md:h-full object-cover rounded"
                     />
                 </div>
-                <div className="md:w-3/5 p-6 flex flex-col justify-between">
+                <div className="md:w-2/3 p-6 flex flex-col justify-between">
                     {/* app info */}
                     <div>
                         <AppDetailsTitle clickedApp={clickedApp} />

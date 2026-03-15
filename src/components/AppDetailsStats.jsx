@@ -5,16 +5,15 @@ import rating_image from '../assets/icon-ratings.png'
 
 const AppDetailsStats = ({ clickedApp }) => {
     const { downloads, reviews, ratingAvg } = clickedApp;
-    // console.log(clickedApp)
     return (
-        <section className="bg-linear-to-br from-gray-300 to-gray-100 py-10 mb-10">
-            <div className='flex flex-wrap justify-center gap-10'>
+        <section className="bg-linear-to-br from-gray-300 to-gray-100 py-10">
+            <div className='flex justify-center'>
                 {/* 1 */}
                 <div className='stats'>
                     <div className='stat'>
                         <div className='stat-figure flex flex-col items-center'>
                            <div>
-                                <img src={download_image} alt="Download icon" />
+                                <img src={download_image} alt="Download icon" className='w-8 h-8'/>
                             </div>
                             <p><small>Downloads</small></p>
                             <h2 >
@@ -28,7 +27,7 @@ const AppDetailsStats = ({ clickedApp }) => {
                     <div className='stat'>
                         <div className='stat-figure flex flex-col items-center'>
                             <div>
-                                <img src={rating_image} alt="Rating icon" />
+                                <img src={rating_image} alt="Rating icon" className='w-8 h-8'/>
                             </div>
                             <p><small>Average Ratings</small></p>
                             <h2>
@@ -42,7 +41,7 @@ const AppDetailsStats = ({ clickedApp }) => {
                     <div className='stat'>
                         <div className='stat-figure flex flex-col items-center'>
                             <div>
-                                <img src={reviews_image} alt="Review icon" />
+                                <img src={reviews_image} alt="Review icon" className='w-8 h-8' />
                             </div>
                             <p><small>Reviews</small></p>
                             <h2>
