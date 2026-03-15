@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import googlePlay from '../assets/gs.png';
 import appStore from '../assets/app_store.png';
 import hero from '../assets/hero.png';
+import AppsContext from './../context/AppsContext';
+import AppCard from './../components/AppCard';
+import { useNavigate } from 'react-router';
 const HomePage = () => {
+    const navigate=useNavigate();
+    const { apps } = useContext(AppsContext);
+    const eightApps = apps.sort((a,b)=>b.downloads - a.downloads).slice(0, 8);
     return (
         <>
+            {/* hero */}
             <section className='padding'>
                 <div className='text-center font-bold pt-10'>
                     <h1 className='text-[#001931]'>We Build</h1>
@@ -15,12 +22,12 @@ const HomePage = () => {
                 </p>
                 <div className='flex justify-center gap-3 mb-6 md:mb-10'>
                     <a href='https://play.google.com/store/games?device=phone&hl=en' target='blank'
-                    className="btn1 border border-gray-300 rounded">
+                        className="btn1 border border-gray-300 rounded">
                         <img src={googlePlay} alt="" />
                         <span>Google Play</span>
                     </a>
                     <a href='https://apps.apple.com/us/iphone/today' target='blank'
-                    className="btn1 border border-gray-300 rounded">
+                        className="btn1 border border-gray-300 rounded">
                         <img src={appStore} alt="" />
                         <span>App Store</span>
                     </a>
@@ -29,7 +36,8 @@ const HomePage = () => {
                     <img src={hero} alt="" />
                 </div>
             </section>
-            <section class="bg-linear-to-br from-[#632EE3] to-[#9F62F2] py-10 text-white">
+            {/* stats */}
+            <section className="bg-linear-to-br from-[#632EE3] to-[#9F62F2] py-10 text-white mb-10">
                 <h2 className='text-center font-semibold mb-4'>Trusted by Millions, Built for You</h2>
                 <div className='flex flex-wrap justify-center gap-10'>
                     {/* 1 */}
@@ -64,6 +72,18 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
+            {/* eight apps */}
+            <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-10'>
+                {
+                    eightApps.map(app => <AppCard key={app.id} app={app} />)
+                }
+            </section>
+            <div className='pb-20 flex justify-center'>
+                <button onClick={()=>navigate('/apps')}
+                className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 transition-opacity duration-200">
+                    Show All
+                </button>
+            </div>
         </>
     );
 };
