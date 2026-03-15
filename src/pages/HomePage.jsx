@@ -14,14 +14,16 @@ const HomePage = () => {
                     At appNest, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.
                 </p>
                 <div className='flex justify-center gap-3 mb-6 md:mb-10'>
-                    <button className="btn1 border border-gray-300 rounded ">
+                    <a href='https://play.google.com/store/games?device=phone&hl=en' target='blank'
+                    className="btn1 border border-gray-300 rounded">
                         <img src={googlePlay} alt="" />
                         <span>Google Play</span>
-                    </button>
-                    <button className="btn1 border border-gray-300 rounded">
+                    </a>
+                    <a href='https://apps.apple.com/us/iphone/today' target='blank'
+                    className="btn1 border border-gray-300 rounded">
                         <img src={appStore} alt="" />
                         <span>App Store</span>
-                    </button>
+                    </a>
                 </div>
                 <div className='flex justify-center'>
                     <img src={hero} alt="" />
