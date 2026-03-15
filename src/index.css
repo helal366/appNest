@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "daisyui";
+*{
+  @apply box-border transition-all duration-200
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+html{
+  scroll-behavior: smooth;
+}
+.padding{
+  @apply px-6 sm:px-10 md:px-16 lg:px-20
+}
+h1,
+h2 {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+.text_gradient {
+  background: linear-gradient(90deg, #632EE3, #9F62F2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+a{
+    margin-right: 8px;
+    padding: 5px 10px;
+}
+a.active{
+    border-bottom: 2px solid #632EE3;
+    @apply transition-colors duration-200 font-semibold text-[#632EE3]
+}
