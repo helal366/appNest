@@ -3,11 +3,12 @@ import './App.css'
 import Navbar from './components/Navbar'
 
 function App() {
+  
 
   return (
     <>
       <Navbar />
-      <main className='bg-[#f5f5f5]'>
+      <main className='bg-[#f5f5f5] min-h-screen'>
         <Outlet />
       </main>
     </>
