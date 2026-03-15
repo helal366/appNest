@@ -1,9 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import { Home, AppWindow, Download } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
 import logo from '../assets/logo.png'
 const Navbar = () => {
+    const navigate=useNavigate();
     const navClass = ({ isActive }) => isActive ? "active" : "";
     const links = [
         { name: "Home", path: "/", icon: Home },
@@ -32,7 +33,7 @@ const Navbar = () => {
                         {renderedLinks}
                     </ul>
                 </div>
-                <div className='flex justify-start gap-2 items-center'>
+                <div className='flex justify-start gap-2 items-center cursor-pointer' onClick={()=>navigate('/')}>
                     <img className='w-6 h-6' src={logo} alt="Logo" />
                     <span className="text-xl font-bold text_gradient">appNest</span>
                 </div>
