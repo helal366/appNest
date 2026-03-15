@@ -8,7 +8,7 @@ const AppCard = ({ app }) => {
         <Link to={`/app_details/${id}`}>
             <div className="card bg-white shadow-sm px-5 pt-5 rounded hover:scale-102 cursor-pointer h-full">
                 <figure className='bg-[#f1f1f1] '>
-                    <img className='rounded object-cover object-top h-48'
+                    <img className='rounded object-cover object-top h-64'
                         src={image}
                         alt={title} />
                 </figure>
