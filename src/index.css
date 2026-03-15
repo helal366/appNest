@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 *{
+   font-family: "Inter", sans-serif;
   @apply box-border transition-all duration-200
 }
 body {
@@ -13,28 +15,18 @@ html{
 .padding{
   @apply px-6 sm:px-10 md:px-16 lg:px-20
 }
-h1,
-h2 {
-  font-weight: 500;
-  color: var(--text-h);
-}
-
 h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
-  margin: 32px 0;
+  font-weight: bold;
   @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+    font-size: 36px;  }
 }
 h2 {
-  font-size: 24px;
-  line-height: 118%;
+  font-size: 36px;
   letter-spacing: -0.24px;
-  margin: 0 0 8px;
   @media (max-width: 1024px) {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .text_gradient {
@@ -49,4 +41,7 @@ a{
 a.active{
     border-bottom: 2px solid #632EE3;
     @apply transition-colors duration-200 font-semibold text-[#632EE3]
+}
+.btn1{
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded cursor-pointer font-semibold
 }

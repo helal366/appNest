@@ -6,8 +6,10 @@ function App() {
 
   return (
     <>
-        <Navbar/>
-        <Outlet/>
+      <Navbar />
+      <main className='bg-[#f5f5f5]'>
+        <Outlet />
+      </main>
     </>
   )
 }
