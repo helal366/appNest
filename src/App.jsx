@@ -7,10 +7,15 @@ import AppsContext from './context/AppsContext';
 function App() {
   const {data: apps, isLoading, error}=useQuery({
     queryKey: ['apps'],
-    queryFn: ()=> fetch("apps.json").then(res=>res.json())
+    queryFn: ()=> fetch("/apps.json").then(res=>res.json())
   });
   if(isLoading) return <p>Loading...</p>
-  if(error) return <p className='text-red font-bold'>{error.message}</p>
+  if(error) return(
+    <>
+      <p className='text-red font-bold'>{error.message}</p>
+      <p className='text-red-500 font-bold'>An unexpected error occurred</p>
+    </>
+  )
   return (
     <AppsContext.Provider value={{apps}}>
       <Navbar />
