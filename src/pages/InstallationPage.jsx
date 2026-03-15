@@ -2,9 +2,9 @@ import React from 'react';
 
 const InstallationPage = () => {
     return (
-        <div>
+        <section className='padding'>
             installation page
-        </div>
+        </section>
     );
 };
 

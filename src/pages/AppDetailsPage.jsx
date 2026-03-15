@@ -5,13 +5,14 @@ import AppsContext from '../context/AppsContext';
 import { Download, Star } from 'lucide-react';
 import AppDetailsStats from '../components/AppDetailsStats';
 import AppDetailsTitle from './AppDetailsTitle';
+import Loading from '../components/Loading';
 
 const AppDetailsPage = () => {
     const { id } = useParams();
     const { apps } = useContext(AppsContext);
 
     if (!apps) {
-        return <p className="text-center mt-10 text-gray-600">Loading...</p>;
+        return <p className="text-center mt-10 text-gray-600"><Loading/></p>;
     }
 
     const clickedApp = apps.find(app => app.id.toString() === id);
@@ -52,9 +53,8 @@ const AppDetailsPage = () => {
                     <div className="mt-6">
                         <Link
                             to="/apps"
-                            className="inline-block px-6 py-3 bg-purple-500 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-600 transition transform hover:scale-105"
-                        >
-                            Back to Apps
+                            className="inline-block cursor-pointer rounded px-6 py-3 bg-green-400 transition-transform duration-300 hover:scale-105">
+                            Install Now 
                         </Link>
                     </div>
                 </div>

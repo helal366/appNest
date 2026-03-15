@@ -7,7 +7,7 @@ const AppDetailsStats = ({ clickedApp }) => {
     const { downloads, reviews, ratingAvg } = clickedApp;
     return (
         <section className="bg-linear-to-br from-gray-300 to-gray-100 py-10">
-            <div className='flex justify-center'>
+            <div className='flex justify-around'>
                 {/* 1 */}
                 <div className='stats'>
                     <div className='stat'>

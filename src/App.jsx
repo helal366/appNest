@@ -3,13 +3,14 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { useQuery } from '@tanstack/react-query'
 import AppsContext from './context/AppsContext';
+import Loading from './components/Loading';
 
 function App() {
   const {data: apps, isLoading, error}=useQuery({
     queryKey: ['apps'],
     queryFn: ()=> fetch("/apps.json").then(res=>res.json())
   });
-  if(isLoading) return <p>Loading...</p>
+  if(isLoading) return <p><Loading/></p>
   if(error) return(
     <>
       <p className='text-red font-bold'>{error.message}</p>
