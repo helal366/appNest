@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router';
 import { Home, AppWindow, Download } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
-
+import logo from '../assets/logo.png'
 const Navbar = () => {
     const navClass = ({ isActive }) => isActive ? "active" : "";
     const links = [
@@ -32,7 +32,10 @@ const Navbar = () => {
                         {renderedLinks}
                     </ul>
                 </div>
-                <span className="text-xl font-bold text_gradient">appNest</span>
+                <div className='flex justify-start gap-2 items-center'>
+                    <img className='w-6 h-6' src={logo} alt="Logo" />
+                    <span className="text-xl font-bold text_gradient">appNest</span>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
