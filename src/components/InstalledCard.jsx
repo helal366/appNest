@@ -26,8 +26,7 @@ const InstalledCard = ({ app }) => {
                 timeout: 2000,
                 position: 'center-center'
             },
-        );
-        
+        );        
     }
     return (
         <section className='border bg-amber-50 p-3 flex flex-col sm:flex-row sm:justify-between gap-2'>

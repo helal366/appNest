@@ -6,7 +6,7 @@ import { AppsContext } from './useContexts/AppsContext'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [sortBy, setSortBy] = useState("Size");
+  const [sortBy, setSortBy] = useState("size");
   const [sortOrder, setSortOrder] = useState("Desc");
   const installationKey = "installed_ids";
   const [installedIDs, setInstalledIDs] = useState(() => {

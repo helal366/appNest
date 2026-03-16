@@ -11,7 +11,7 @@ const SortDropdown = () => {
                 <option value="size">Sort by Size</option>
                 <option value="reviews">Sort by Reviews</option>
                 <option value="downloads">Sort by Downloads</option>
-                <option value="ratings">Sort by Ratings</option>
+                <option value="ratingAvg">Sort by Ratings</option>
             </select>
             <button className='border rounded px-3 py-1.5 bg-gray-100 transition duration-200 cursor-pointer'
                     onClick={()=>setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
