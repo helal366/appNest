@@ -34,7 +34,6 @@ const AppDetailsPage = () => {
             setInstalledIDs(updatedInstalledIDs);
         }
     }
-    console.log(installedIDs)
     return (
         <section className="min-h-screen padding bg-gray-50 pt-10 pb-40">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row gap-3 lg:gap-6 mb-20">
@@ -55,7 +54,7 @@ const AppDetailsPage = () => {
                     {/* Back Button */}
                     <div className="mt-6">
                         <button onClick={handleInstalled}
-                            // disabled={isexist}
+                            disabled={isexist}
                             className="inline-block cursor-pointer rounded px-6 py-3 bg-green-300 transition-transform duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:bg-gray-400/80">
                             {isexist ? "Installed" : `Install Now (${app.size})MB`}
                         </button>
