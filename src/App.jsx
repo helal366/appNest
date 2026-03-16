@@ -3,7 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { AppsContext } from './useContexts/AppsContext'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const installationKey="installed_ids";
@@ -15,6 +15,9 @@ function App() {
       return [];
     }
   });
+  useEffect(()=>{
+        localStorage.setItem(installationKey, JSON.stringify(installedIDs))
+    },[installedIDs, installationKey])
   return (
     <AppsContext.Provider value={{installedIDs, setInstalledIDs, installationKey }}>
       <Navbar />

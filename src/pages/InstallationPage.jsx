@@ -11,11 +11,12 @@ const InstallationPage = () => {
     const [searchText, setSearchText]=useState("");
     const {installedIDs}=useContext(AppsContext);
     const {data: apps, isLoading, error} =useApps();
-    if(!apps || isLoading) return <Loading/>
+    if(isLoading) return <Loading/>
     if(error) return <FetchErrorComponent error={error}/>
+    if(!apps) return <p className='text-red-600 py-10 text-center font-semibold text-lg'>App not found</p>
     const installedApps = apps.filter(ap=>installedIDs.includes(JSON.stringify(ap.id)));
     return (
-        <section className='padding'>
+        <section className='padding pb-10'>
             <div className='text-center py-10'>
                 <h2>Your Installed Apps</h2>
                 <p className='text-gray-500'>Explore All Trending Apps on the Market developed by us</p>

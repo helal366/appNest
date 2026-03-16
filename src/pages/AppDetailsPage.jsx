@@ -1,37 +1,37 @@
-import { useParams, Link } from 'react-router';
+import { useParams } from 'react-router';
 import AppDetailsStats from '../components/AppDetailsStats';
 import AppDetailsTitle from '../components/AppDetailsTitle';
 import Loading from '../components/Loading';
 import AppDetailsRatingsChart from '../components/AppDetailsRatingsChart';
 import { useSingleApp } from '../customHooks/useApps';
-import { useContext, useEffect } from 'react';
+import { useContext} from 'react';
 import { AppsContext } from '../useContexts/AppsContext';
 import FetchErrorComponent from '../components/FetchErrorComponent';
 import Notiflix from 'notiflix';
 
 const AppDetailsPage = () => {
-    const { installedIDs, setInstalledIDs, installationKey } = useContext(AppsContext);
+    const { installedIDs, setInstalledIDs } = useContext(AppsContext);
     const { id } = useParams();
     const { data: app, isLoading, error } = useSingleApp(id);
-    useEffect(() => {
-        localStorage.setItem(installationKey, JSON.stringify(installedIDs));
-    }, [installedIDs, installationKey])
-    if (!app || isLoading) return <Loading />
+    
+    if (isLoading) return <Loading />
     if (error) return <FetchErrorComponent error={error} />
-    const isexist = installedIDs.includes(id);
+    if(!app) return <p className='text-red-600 py-10 text-center font-semibold text-lg'>App not found</p>
+    const isexist = installedIDs.includes(String(id));
     const handleInstalled = () => {
         if (isexist) {
             Notiflix.Notify.warning(
                 "Already exist!",
-                {
-                    position: "center-top",
-                    fontSize: "20px"
-                }
+                {position: "center-top", fontSize: "20px"}
             );
         }
         else {
             const updatedInstalledIDs = [...installedIDs, id];
             setInstalledIDs(updatedInstalledIDs);
+            Notiflix.Notify.success(
+                "Installed successfully!",
+                {position: "center-top", fontSize: "20px"}
+            );
         }
     }
     return (

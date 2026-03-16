@@ -1,11 +1,14 @@
-import React from 'react';
-// import download_image from '../assets/icon-downloads.png'
+import React, { useContext } from 'react';
 import { Download } from 'lucide-react';
 import { RiStarSFill } from 'react-icons/ri';
+import { AppsContext } from '../useContexts/AppsContext';
 
 const InstalledCard = ({ app }) => {
-    const { image, title, downloads, ratingAvg, size } = app;
-    console.log(app)
+    const { image, title, downloads, ratingAvg, size, id } = app;
+    const {setInstalledIDs}=useContext(AppsContext);
+    const handleUninstall=()=>{
+        setInstalledIDs(prev=>prev.filter(i=>String(i)!==String(id)));
+    }
     return (
         <section className='border bg-amber-50 p-3 flex flex-col sm:flex-row sm:justify-between gap-2'>
             <div className='flex gap-5'>
@@ -29,8 +32,9 @@ const InstalledCard = ({ app }) => {
                     </div>
                 </div>
             </div>
-            <div className='bg-red sm:self-center'>
-                <button className='rounded shadow bg-green-500 text-white font-semibold cursor-pointer px-3 py-1 hover:scale-103 hover:-translate-y-1 transition-all duration-200 active:scale-95'>
+            <div className='sm:self-center'>
+                <button onClick={handleUninstall}
+                className='rounded shadow bg-green-500 text-white font-semibold cursor-pointer px-3 py-1 hover:scale-105  transition-all duration-200 active:scale-95'>
                     <small>Uninstall</small>
                 </button>
             </div>
