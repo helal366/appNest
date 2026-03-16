@@ -15,15 +15,16 @@ const InstalledCard = ({ app }) => {
             'No',
             function okCb() {
                 setInstalledIDs(prev => prev.filter(i => String(i) !== String(id)));
-                alert('Uninstalled successfully!');
+                Notiflix.Notify.success('Uninstalled successfully!', {position: "center-center", fontSize: "20px", timeout: 2500});
             },
             function cancelCb() {
-                alert('Cancelled.');
+                Notiflix.Notify.info('Cancelled.', {position: "center-center", fontSize: "20px", timeout: 2500});
             },
             {
                 width: '320px',
                 borderRadius: '8px',
-                timeout: 2000
+                timeout: 2000,
+                position: 'center-center'
             },
         );
         
