@@ -35,7 +35,7 @@ const AppDetailsPage = () => {
         }
     }
     return (
-        <section className="min-h-screen padding bg-gray-50 pt-10 pb-40">
+        <section className="min-h-screen padding bg-gray-50 pt-10 pb-10">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row gap-3 lg:gap-6 mb-20">
                 {/* app image */}
                 <div className="md:w-1/3">
@@ -61,9 +61,15 @@ const AppDetailsPage = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            {/* rating chart */}
+            <div className='pb-10'>
                 <AppDetailsRatingsChart clickedApp={app} />
             </div>
+            {/* description */}
+           <div>
+            <h2 >Description:</h2>
+            <p>{app.description}</p>
+           </div>
         </section>
     );
 };
