@@ -8,9 +8,10 @@ import Loading from './components/Loading';
 function App() {
   const {data: apps, isLoading, error}=useQuery({
     queryKey: ['apps'],
-    queryFn: ()=> fetch("/apps.json").then(res=>res.json())
+    queryFn: ()=> fetch("/apps.json").then(res=>res.json()),
+    staleTime: 1000 *60 *5,
   });
-  if(isLoading) return <p><Loading/></p>
+  if(isLoading) return <Loading/>
   if(error) return(
     <>
       <p className='text-red font-bold'>{error.message}</p>
@@ -18,7 +19,7 @@ function App() {
     </>
   )
   return (
-    <AppsContext.Provider value={{apps}}>
+    <AppsContext.Provider value={{apps:apps || []}}>
       <Navbar />
       <main className='bg-[#f5f5f5] min-h-screen'>
         <Outlet />

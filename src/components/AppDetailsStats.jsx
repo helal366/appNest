@@ -25,7 +25,7 @@ const AppDetailsStats = ({ clickedApp }) => {
                 {/* 2 */}
                 <div className='stats'>
                     <div className='stat'>
-                        <div className='stat-figure flex flex-col items-center'>
+                        <div className='stat-figure flex flex-col items-center gap-4'>
                             <div>
                                 <img src={rating_image} alt="Rating icon" className='w-8 h-8'/>
                             </div>

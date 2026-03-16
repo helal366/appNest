@@ -3,7 +3,7 @@ import { Download, Star } from "lucide-react";
 import { Link } from 'react-router';
 
 const AppCard = ({ app }) => {
-    const { downloads, image, ratingAvg, title, description, id } = app;
+    const { downloads, image, ratingAvg, title, id } = app;
     return (
         <Link to={`/app_details/${id}`}>
             <div className="card bg-white shadow-sm px-5 pt-5 rounded hover:scale-102 cursor-pointer h-full">
@@ -13,7 +13,7 @@ const AppCard = ({ app }) => {
                         alt={title} />
                 </figure>
                 <div>
-                    <p className='font-bold my-2 truncate'>{title}: {description}</p>
+                    <p className='font-bold my-2 truncate text-center'>{title}</p>
                     <div className='flex justify-between gap-6 flex-wrap mb-2 font-bold'>
                         <div className='flex gap-2 text-green-500 bg-gray-200/90 rounded justify-center mb-1 items-center badge'>
                             <span><Download size={16} stroke='currentColor' /></span>
