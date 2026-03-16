@@ -7,25 +7,18 @@ import InstalledCard from '../components/InstalledCard';
 import SortDropdown from '../components/SortDropdown';
 
 const InstallationPage = () => {
-    const { installedIDs,sortBy } = useContext(AppsContext);
+    const { installedIDs,sortBy,sortOrder } = useContext(AppsContext);
     const { data: apps, isLoading, error } = useApps();
     if (isLoading) return <Loading />
     if (error) return <FetchErrorComponent error={error} />
     if (!apps) return <p className='text-red-600 py-10 text-center font-semibold text-lg'>App not found</p>
     const installedApps = apps.filter(ap => installedIDs.includes(JSON.stringify(ap.id)));
     const sortedApps = [...installedApps].sort((a,b)=>{
-        switch(sortBy){
-            case "size": 
-                return b.size - a.size;
-            case "reviews":
-                return b.reviews - a.reviews;
-            case "downloads":
-                return b.downloads - a.downloads;
-            case "ratings":
-                return b.ratingAvg -a.ratingAvg;
-            default:
-                return 0;
-        }
+        if(!sortBy) return 0;
+        const aValue = a[sortBy];
+        const bValue = b[sortBy];
+        if(sortOrder === "asc") return aValue - bValue;
+        return bValue -aValue;
     })
     return (
         <section className='padding pb-10'>

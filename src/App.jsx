@@ -6,27 +6,28 @@ import { AppsContext } from './useContexts/AppsContext'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [sortBy, setSortBy]=useState("Size");
-  const installationKey="installed_ids";
-  const [installedIDs, setInstalledIDs]=useState(()=>{
+  const [sortBy, setSortBy] = useState("Size");
+  const [sortOrder, setSortOrder] = useState("Desc");
+  const installationKey = "installed_ids";
+  const [installedIDs, setInstalledIDs] = useState(() => {
     try {
       const installedStorageIDs = localStorage.getItem(installationKey);
       return installedStorageIDs ? JSON.parse(installedStorageIDs) : [];
-    } catch{
+    } catch {
       return [];
     }
   });
-  useEffect(()=>{
-        localStorage.setItem(installationKey, JSON.stringify(installedIDs))
-    },[installedIDs, installationKey])
-    const value={installedIDs, setInstalledIDs, installationKey,sortBy, setSortBy }
+  useEffect(() => {
+    localStorage.setItem(installationKey, JSON.stringify(installedIDs))
+  }, [installedIDs, installationKey])
+  const value = { installedIDs, setInstalledIDs, installationKey, sortBy, setSortBy, sortOrder, setSortOrder }
   return (
     <AppsContext.Provider value={value}>
       <Navbar />
       <main className='bg-[#f5f5f5] min-h-screen'>
         <Outlet />
       </main>
-      <Footer/>
+      <Footer />
     </AppsContext.Provider>
   )
 }
