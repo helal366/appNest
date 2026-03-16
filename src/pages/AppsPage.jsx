@@ -1,12 +1,25 @@
-import React, { useContext, useState } from 'react';
-import AppsContext from '../context/AppsContext';
 import AppCard from '../components/AppCard';
 import { Search } from 'lucide-react';
 import NoAppFound from '../components/NoAppFound';
+import { useApps } from '../customHooks/useApps';
+import Loading from '../components/Loading';
+import { useState } from 'react';
 
 const AppsPage = () => {
     const [searchText, setSearchText]=useState("");
-    const { apps } = useContext(AppsContext);
+    const { data:apps, isLoading, error } = useApps();
+        if (!apps || isLoading) {
+            return <Loading/>
+        }
+        
+        if(error) {
+        return (
+          <div className='text-red-500 font-bold text-center spacy-y-0 pb-40'>
+            <p>Something went wrong!!!</p>
+            <p>{error?.message}</p>
+          </div>
+        )
+      }
     const filteredApps=apps.filter(app=>app.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
     return (
         <section className='padding'>

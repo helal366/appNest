@@ -1,14 +1,23 @@
-import React, { useContext } from 'react';
 import googlePlay from '../assets/gs.png';
 import appStore from '../assets/app_store.png';
 import hero from '../assets/hero.png';
-import AppsContext from './../context/AppsContext';
 import AppCard from './../components/AppCard';
 import { useNavigate } from 'react-router';
+import { useApps } from '../customHooks/useApps';
+import Loading from '../components/Loading';
 const HomePage = () => {
-    const navigate=useNavigate();
-    const { apps } = useContext(AppsContext);
-    const eightApps = apps.sort((a,b)=>b.downloads - a.downloads).slice(0, 8);
+    const navigate = useNavigate();
+    const { data:apps, isLoading, error } = useApps();
+    if (!apps || isLoading) return <Loading />
+    if (error) {
+        return (
+            <div className='text-red-500 font-bold text-center spacy-y-0 pb-40'>
+                <p>Something went wrong!!!</p>
+                <p>{error?.message}</p>
+            </div>
+        )
+    }
+    const eightApps = apps.sort((a, b) => b.downloads - a.downloads).slice(0, 8);
     return (
         <>
             {/* hero */}
@@ -79,8 +88,8 @@ const HomePage = () => {
                 }
             </section>
             <div className='pb-20 flex justify-center'>
-                <button onClick={()=>navigate('/apps')}
-                className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 hover:scale-103 hover:-translate-y-1 transition-all duration-200">
+                <button onClick={() => navigate('/apps')}
+                    className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 hover:scale-103 hover:-translate-y-1 transition-all duration-200">
                     Show All
                 </button>
             </div>
