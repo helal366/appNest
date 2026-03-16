@@ -6,6 +6,7 @@ import { AppsContext } from './useContexts/AppsContext'
 import { useEffect, useState } from 'react'
 
 function App() {
+  const [sortBy, setSortBy]=useState("Size");
   const installationKey="installed_ids";
   const [installedIDs, setInstalledIDs]=useState(()=>{
     try {
@@ -18,8 +19,9 @@ function App() {
   useEffect(()=>{
         localStorage.setItem(installationKey, JSON.stringify(installedIDs))
     },[installedIDs, installationKey])
+    const value={installedIDs, setInstalledIDs, installationKey,sortBy, setSortBy }
   return (
-    <AppsContext.Provider value={{installedIDs, setInstalledIDs, installationKey }}>
+    <AppsContext.Provider value={value}>
       <Navbar />
       <main className='bg-[#f5f5f5] min-h-screen'>
         <Outlet />

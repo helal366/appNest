@@ -51,7 +51,7 @@ const AppDetailsPage = () => {
                         <AppDetailsTitle clickedApp={app} />
                         <AppDetailsStats clickedApp={app} />
                     </div>
-                    {/* Back Button */}
+                    {/* back button */}
                     <div className="mt-6">
                         <button onClick={handleInstalled}
                             disabled={isexist}
