@@ -8,17 +8,20 @@ const AppDetailsRatingsChart = ({ clickedApp }) => {
     }
     const sortedRatings = [...ratings].reverse();
     return (
-        <section className='shadow-2xl' style={{ width: '100%', height: 400 }}>
-            <ResponsiveContainer width='100%' height={'400'}>
-                <BarChart data={sortedRatings} layout="vertical" >
-                    <XAxis type='number' />
-                    <YAxis dataKey="name" type='category' />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="count" fill="#F77F00" />
-                </BarChart>
-            </ResponsiveContainer>
-        </section>
+        <>
+            <h2 className='pb-5'>Rating: </h2>
+            <section className='shadow-2xl' style={{ width: '100%', height: 400 }}>
+                <ResponsiveContainer width='100%' height={'400'}>
+                    <BarChart data={sortedRatings} layout="vertical" >
+                        <XAxis type='number' />
+                        <YAxis dataKey="name" type='category' />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="count" fill="#F77F00" />
+                    </BarChart>
+                </ResponsiveContainer>
+            </section>
+        </>
     );
 };
 

@@ -4,23 +4,28 @@ import AppDetailsTitle from '../components/AppDetailsTitle';
 import Loading from '../components/Loading';
 import AppDetailsRatingsChart from '../components/AppDetailsRatingsChart';
 import { useSingleApp } from '../customHooks/useApps';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AppsContext } from '../useContexts/AppsContext';
 import FetchErrorComponent from '../components/FetchErrorComponent';
 
 const AppDetailsPage = () => {
-    // const [installed, setInstalled] = useState([]);
-    const {installedIDs, setInstalledIDs}=useContext(AppsContext);
+    const { installedIDs, setInstalledIDs, installationKey } = useContext(AppsContext);
     const { id } = useParams();
     const { data: app, isLoading, error } = useSingleApp(id);
-    if (!app || isLoading) {
-        return <Loading />
-    }
-    if (error) return <FetchErrorComponent error={error}/>
+    useEffect(() => {
+        localStorage.setItem(installationKey, JSON.stringify(installedIDs));
+    }, [installedIDs, installationKey])
+    if (!app || isLoading) return <Loading />
+    if (error) return <FetchErrorComponent error={error} />
     const isexist = installedIDs.includes(id);
     const handleInstalled = () => {
-        if (isexist) alert("Already exist!");
-        else setInstalledIDs([...installedIDs, id]);
+        if (isexist) {
+            alert("Already exist!");
+        }
+        else {
+            const updatedInstalledIDs = [...installedIDs, id];
+            setInstalledIDs(updatedInstalledIDs);
+        }
     }
     console.log(installedIDs)
     return (
@@ -45,7 +50,7 @@ const AppDetailsPage = () => {
                         <button onClick={handleInstalled}
                             disabled={isexist}
                             className="inline-block cursor-pointer rounded px-6 py-3 bg-green-300 transition-transform duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:bg-gray-400/80">
-                            Install Now ({app.size})MB
+                            {isexist ? "Installed" : `Install Now (${app.size})MB`}
                         </button>
                     </div>
                 </div>

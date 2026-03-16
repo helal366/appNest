@@ -6,9 +6,17 @@ import { AppsContext } from './useContexts/AppsContext'
 import { useState } from 'react'
 
 function App() {
-  const [installedIDs, setInstalledIDs]=useState([]);
+  const installationKey="installed_ids";
+  const [installedIDs, setInstalledIDs]=useState(()=>{
+    try {
+      const installedStorageIDs = localStorage.getItem(installationKey);
+      return installedStorageIDs ? JSON.parse(installedStorageIDs) : [];
+    } catch{
+      return [];
+    }
+  });
   return (
-    <AppsContext.Provider value={{installedIDs, setInstalledIDs}}>
+    <AppsContext.Provider value={{installedIDs, setInstalledIDs, installationKey }}>
       <Navbar />
       <main className='bg-[#f5f5f5] min-h-screen'>
         <Outlet />
