@@ -20,8 +20,8 @@ const AppDetailsPage = () => {
     }
 
     return (
-        <section className="min-h-screen padding bg-gray-50 mb-40">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row gap-3 lg:gap-6 mb-10">
+        <section className="min-h-screen padding bg-gray-50 pt-10 pb-40">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row gap-3 lg:gap-6 mb-20">
                 {/* app image */}
                 <div className="md:w-1/3">
                     <img

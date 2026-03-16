@@ -3,36 +3,16 @@ import './App.css'
 import Navbar from './components/Navbar'
 import AppsContext from './context/AppsContext';
 import Loading from './components/Loading';
-// import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 function App() {
-  // const [apps, setApps] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError]=useState("");
-  // useEffect(() => {
-  //   try {
-  //     fetch("/apps.json").then(res => res.json())
-  //       .then(data => setApps(data))
-  //   } catch (error) {
-  //     setError(error?.message)
-  //   }finally{
-  //     setLoading(false)
-  //   }
-
-  // }, []);
-  // if (!apps || loading) return <Loading />
-  // if(error) {
-  //   return (
-  //     <div className='text-red-500 font-bold'>
-  //       <p>Something went wrong!!!</p>
-  //       <p>{error}</p>
-  //     </div>
-  //   )
-  // }
   const {data: apps, isLoading, error}=useQuery({
     queryKey: ['apps'],
-    queryFn: ()=> fetch("/apps.json").then(res=>res.json()),
+    queryFn: async()=> {
+      const res = await fetch("/apps.json");
+      if(!res.ok) throw new Error("Failed to fetch app!");
+      return res=>res.json();
+    },
     staleTime: 1000 *60 *5,
   });
   if(isLoading) return <Loading/>

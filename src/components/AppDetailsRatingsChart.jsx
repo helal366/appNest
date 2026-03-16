@@ -7,7 +7,7 @@ const AppDetailsRatingsChart = ({ clickedApp }) => {
     console.log(ratings)
     console.log(sortedRatings);
     return (
-        <section className='shadow-2xl' style={{ width: '100%', height: 300 }}>
+        <section className='shadow-2xl' style={{ width: '100%', height: 400 }}>
             <ResponsiveContainer width='100%' height={'400'}>
                 <BarChart data={sortedRatings} layout="vertical" >
                     <XAxis type='number'/>
