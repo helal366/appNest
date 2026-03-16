@@ -7,6 +7,7 @@ import { useSingleApp } from '../customHooks/useApps';
 import { useContext, useEffect } from 'react';
 import { AppsContext } from '../useContexts/AppsContext';
 import FetchErrorComponent from '../components/FetchErrorComponent';
+import Notiflix from 'notiflix';
 
 const AppDetailsPage = () => {
     const { installedIDs, setInstalledIDs, installationKey } = useContext(AppsContext);
@@ -20,7 +21,13 @@ const AppDetailsPage = () => {
     const isexist = installedIDs.includes(id);
     const handleInstalled = () => {
         if (isexist) {
-            alert("Already exist!");
+            Notiflix.Notify.warning(
+                "Already exist!",
+                {
+                    position: "center-top",
+                    fontSize: "20px"
+                }
+            );
         }
         else {
             const updatedInstalledIDs = [...installedIDs, id];
@@ -48,7 +55,7 @@ const AppDetailsPage = () => {
                     {/* Back Button */}
                     <div className="mt-6">
                         <button onClick={handleInstalled}
-                            disabled={isexist}
+                            // disabled={isexist}
                             className="inline-block cursor-pointer rounded px-6 py-3 bg-green-300 transition-transform duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:bg-gray-400/80">
                             {isexist ? "Installed" : `Install Now (${app.size})MB`}
                         </button>
