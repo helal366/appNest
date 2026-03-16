@@ -7,8 +7,6 @@ const AppDetailsRatingsChart = ({ clickedApp }) => {
         return <p className="text-center py-10 text-gray-500">No ratings data available</p>;
     }
     const sortedRatings = [...ratings].reverse();
-    console.log(ratings)
-    console.log(sortedRatings);
     return (
         <section className='shadow-2xl' style={{ width: '100%', height: 400 }}>
             <ResponsiveContainer width='100%' height={'400'}>

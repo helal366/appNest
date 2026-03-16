@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 
 export const useApps = () => {
     return useQuery({
@@ -14,6 +14,9 @@ export const useApps = () => {
 }
 
 export const useSingleApp=(id)=>{
+    const queryClient = useQueryClient();
+    const catchApps = queryClient.getQueryData(["apps"]);
+    const catchApp = catchApps?.find(cat=>cat?.id == id);
     return useQuery({
         queryKey: ["apps", id],
         queryFn: async()=>{
@@ -24,7 +27,8 @@ export const useSingleApp=(id)=>{
             if(!app) throw new Error("App is not found");
             return app;
         },
-        enabled: !!id,
-        staleTime: 1000 *60 *5
+        enabled: !!id && !catchApp,
+        staleTime: 1000 *60 *5,
+        initialData: catchApp
     })
 }
