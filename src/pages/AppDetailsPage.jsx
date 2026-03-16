@@ -30,7 +30,7 @@ const AppDetailsPage = () => {
             setInstalledIDs(updatedInstalledIDs);
             Notiflix.Notify.success(
                 "Installed successfully!",
-                {position: "center-top", fontSize: "20px"}
+                {position: "center-top", fontSize: "20px", timeout: 2500}
             );
         }
     }

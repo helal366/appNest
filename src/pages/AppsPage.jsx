@@ -22,7 +22,7 @@ const AppsPage = () => {
       }
     const filteredApps=apps.filter(app=>app.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
     return (
-        <section className='padding'>
+        <section className='padding pb-10'>
             <div className='text-center py-10'>
                 <h2>Our All Applications</h2>
                 <p className='text-gray-500'>Explore All Apps on the Market developed by us. We code for Millions</p>

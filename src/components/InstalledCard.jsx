@@ -2,12 +2,31 @@ import React, { useContext } from 'react';
 import { Download } from 'lucide-react';
 import { RiStarSFill } from 'react-icons/ri';
 import { AppsContext } from '../useContexts/AppsContext';
+import Notiflix from 'notiflix';
 
 const InstalledCard = ({ app }) => {
     const { image, title, downloads, ratingAvg, size, id } = app;
-    const {setInstalledIDs}=useContext(AppsContext);
-    const handleUninstall=()=>{
-        setInstalledIDs(prev=>prev.filter(i=>String(i)!==String(id)));
+    const { setInstalledIDs } = useContext(AppsContext);
+    const handleUninstall = () => {
+        Notiflix.Confirm.show(
+            'Notiflix Confirm',
+            'Do you want to uninstall the app?',
+            'Yes',
+            'No',
+            function okCb() {
+                setInstalledIDs(prev => prev.filter(i => String(i) !== String(id)));
+                alert('Uninstalled successfully!');
+            },
+            function cancelCb() {
+                alert('Cancelled.');
+            },
+            {
+                width: '320px',
+                borderRadius: '8px',
+                timeout: 2000
+            },
+        );
+        
     }
     return (
         <section className='border bg-amber-50 p-3 flex flex-col sm:flex-row sm:justify-between gap-2'>
@@ -34,7 +53,7 @@ const InstalledCard = ({ app }) => {
             </div>
             <div className='sm:self-center'>
                 <button onClick={handleUninstall}
-                className='rounded shadow bg-green-500 text-white font-semibold cursor-pointer px-3 py-1 hover:scale-105  transition-all duration-200 active:scale-95'>
+                    className='rounded shadow bg-green-500 text-white font-semibold cursor-pointer px-3 py-1 hover:scale-105  transition-all duration-200 active:scale-95'>
                     <small>Uninstall</small>
                 </button>
             </div>
