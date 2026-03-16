@@ -82,7 +82,7 @@ const HomePage = () => {
                 </div>
             </section>
             {/* eight apps */}
-            <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-10'>
+            <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-10 padding'>
                 {
                     eightApps.map(app => <AppCard key={app.id} app={app} />)
                 }
