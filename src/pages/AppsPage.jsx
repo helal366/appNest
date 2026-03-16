@@ -28,7 +28,7 @@ const AppsPage = () => {
                 <p className='text-gray-500'>Explore All Apps on the Market developed by us. We code for Millions</p>
             </div>
 
-            <div className='flex justify-between items-center mb-5'>
+            <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mb-5'>
                 <p className='font-bold text-md'>({apps.length}) Apps Found</p>
                 <div className='relative '>
                     <Search className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'/>
