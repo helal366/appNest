@@ -13,7 +13,7 @@ const SortDropdown = () => {
                 <option value="downloads">Sort by Downloads</option>
                 <option value="ratings">Sort by Ratings</option>
             </select>
-            <button className='border rounded px-3 py-1.5 bg-white hover:bg-gray-100 transition duration-200 cursor-pointer'
+            <button className='border rounded px-3 py-1.5 bg-gray-100 transition duration-200 cursor-pointer'
                     onClick={()=>setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
                 {sortOrder === "asc" ? "↑ Asc" : "↓ Desc"}
             </button>
