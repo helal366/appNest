@@ -4,8 +4,10 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { AppsContext } from './useContexts/AppsContext'
 import { useEffect, useState } from 'react'
+import { useScrollToTop } from './customHooks/useScrollToTop'
 
 function App() {
+  useScrollToTop()
   const [sortBy, setSortBy] = useState("size");
   const [sortOrder, setSortOrder] = useState("Desc");
   const installationKey = "installed_ids";

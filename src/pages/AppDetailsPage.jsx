@@ -8,8 +8,10 @@ import { useContext} from 'react';
 import { AppsContext } from '../useContexts/AppsContext';
 import FetchErrorComponent from '../components/FetchErrorComponent';
 import Notiflix from 'notiflix';
+import { useScrollToTop } from '../customHooks/useScrollToTop';
 
 const AppDetailsPage = () => {
+    useScrollToTop()
     const { installedIDs, setInstalledIDs } = useContext(AppsContext);
     const { id } = useParams();
     const { data: app, isLoading, error } = useSingleApp(id);
