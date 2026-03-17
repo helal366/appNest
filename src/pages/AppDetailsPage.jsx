@@ -24,7 +24,7 @@ const AppDetailsPage = () => {
         if (isexist) {
             Notiflix.Notify.warning(
                 "Already exist!",
-                {position: "center-top", fontSize: "20px"}
+                {position: "center-center", fontSize: "20px"}
             );
         }
         else {
@@ -32,7 +32,7 @@ const AppDetailsPage = () => {
             setInstalledIDs(updatedInstalledIDs);
             Notiflix.Notify.success(
                 "Installed successfully!",
-                {position: "center-top", fontSize: "20px", timeout: 2500}
+                {position: "center-center", fontSize: "20px", timeout: 2500}
             );
         }
     }
