@@ -44,7 +44,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 transition-opacity duration-200">
+                <button onClick={()=>window.open("https://github.com/helal366", "_blank")}
+                className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 transition-opacity duration-200">
                     <FaGithub />
                     Contribute
                 </button>
