@@ -33,7 +33,7 @@ const Navbar = () => {
                         {renderedLinks}
                     </ul>
                 </div>
-                <div className='flex justify-start gap-2 items-center cursor-pointer' onClick={()=>navigate('/')}>
+                <div className='flex justify-start gap-2 items-center cursor-pointer style1' onClick={()=>navigate('/')}>
                     <img className='w-6 h-6' src={logo} alt="Logo" />
                     <span className="text-xl font-bold text_gradient">appNest</span>
                 </div>
@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <button onClick={()=>window.open("https://github.com/helal366", "_blank")}
-                className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 transition-opacity duration-200">
+                className="btn1 bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white  hover:opacity-90 transition-opacity style1">
                     <FaGithub />
                     Contribute
                 </button>

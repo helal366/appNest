@@ -46,3 +46,6 @@ nav a.active{
 .btn1{
   @apply inline-flex items-center gap-2 px-4 py-2 rounded cursor-pointer font-semibold
 }
+.style1{
+  @apply hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-2xl active:scale-[0.98] active:translate-y-0 active:shadow-md transform transition-all duration-300 ease-out
+}

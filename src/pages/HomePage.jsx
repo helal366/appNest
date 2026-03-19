@@ -31,12 +31,12 @@ const HomePage = () => {
                 </p>
                 <div className='flex justify-center gap-3 mb-6 md:mb-10'>
                     <a href='https://play.google.com/store/games?device=phone&hl=en' target='blank'
-                        className="btn1 border border-gray-300 rounded hover:scale-103 hover:-translate-y-1 transition-transform duration-200">
+                        className="btn1 border border-gray-300 rounded style1">
                         <img src={googlePlay} alt="" />
                         <span>Google Play</span>
                     </a>
                     <a href='https://apps.apple.com/us/iphone/today' target='blank'
-                        className="btn1 border border-gray-300 rounded hover:scale-103 hover:-translate-y-1 transition-transform duration-200">
+                        className="btn1 border border-gray-300 rounded style1">
                         <img src={appStore} alt="" />
                         <span>App Store</span>
                     </a>

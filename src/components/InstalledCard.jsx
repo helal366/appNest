@@ -54,7 +54,7 @@ const InstalledCard = ({ app }) => {
             </div>
             <div className='sm:self-center'>
                 <button onClick={handleUninstall}
-                    className='rounded shadow bg-green-500 text-white font-semibold cursor-pointer px-3 py-1 hover:scale-105  transition-all duration-200 active:scale-95'>
+                    className='rounded shadow bg-green-500 text-white font-semibold cursor-pointer px-3 py-1 style1'>
                     <small>Uninstall</small>
                 </button>
             </div>
