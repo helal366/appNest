@@ -29,7 +29,8 @@ const InstalledCard = ({ app }) => {
         );        
     }
     return (
-        <section className='border bg-amber-50 p-3 flex flex-col sm:flex-row sm:justify-between gap-2'>
+        <section data-aos="zoom-out"
+        className='border bg-amber-50 p-3 flex flex-col sm:flex-row sm:justify-between gap-2'>
             <div className='flex gap-5'>
                 <img src={image} alt={title} className='w-16 h-16 rounded shadow-lg' />
                 <div className='flex flex-col justify-between'>

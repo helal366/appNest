@@ -21,7 +21,7 @@ const HomePage = () => {
     return (
         <>
             {/* hero */}
-            <section className='padding'>
+            <section className='padding' >
                 <div className='text-center font-bold pt-10'>
                     <h1 className='text-[#001931]'>We Build</h1>
                     <h1 ><span className='text_gradient'>Productive</span> <span>Apps</span></h1>
@@ -41,12 +41,13 @@ const HomePage = () => {
                         <span>App Store</span>
                     </a>
                 </div>
-                <div className='flex justify-center'>
+                <div className='flex justify-center' data-aos="flip-left">
                     <img src={hero} alt="" />
                 </div>
             </section>
             {/* stats */}
-            <section className="bg-linear-to-br from-[#632EE3] to-[#9F62F2] py-10 text-white mb-10">
+            <section data-aos="zoom-in"
+            className="bg-linear-to-br from-[#632EE3] to-[#9F62F2] py-10 text-white mb-10" >
                 <h2 className='text-center font-semibold mb-4'>Trusted by Millions, Built for You</h2>
                 <div className='flex flex-wrap justify-center gap-10'>
                     {/* 1 */}

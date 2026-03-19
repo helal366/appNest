@@ -1,12 +1,27 @@
-import { Outlet } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
 import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { AppsContext } from './useContexts/AppsContext'
 import { useEffect, useState } from 'react'
 import { useScrollToTop } from './customHooks/useScrollToTop'
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 function App() {
+  const location =useLocation()
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true, // animation happens once
+      easing: "ease-in-out",
+    });
+  }, []);
+   useEffect(() => {
+    AOS.refresh();
+  }, [location.pathname]);
+
   useScrollToTop()
   const [sortBy, setSortBy] = useState("size");
   const [sortOrder, setSortOrder] = useState("Desc");
