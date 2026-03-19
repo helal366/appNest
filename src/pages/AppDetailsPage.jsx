@@ -44,7 +44,7 @@ const AppDetailsPage = () => {
                     <img
                         src={app.image}
                         alt={app.title}
-                        className="w-full h-64 md:h-full object-cover object-top-left rounded"
+                        className="w-full h-64 md:h-full object-contail object-top-left rounded"
                     />
                 </div>
                 <div className="md:w-2/3 p-6 flex flex-col justify-between">
