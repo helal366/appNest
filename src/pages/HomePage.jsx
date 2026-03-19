@@ -5,7 +5,9 @@ import AppCard from './../components/AppCard';
 import { useNavigate } from 'react-router';
 import { useApps } from '../customHooks/useApps';
 import Loading from '../components/Loading';
+import { useScrollToTop } from '../customHooks/useScrollToTop';
 const HomePage = () => {
+    useScrollToTop();
     const navigate = useNavigate();
     const { data:apps, isLoading, error } = useApps();
     if (!apps || isLoading) return <Loading />

@@ -4,8 +4,10 @@ import NoAppFound from '../components/NoAppFound';
 import { useApps } from '../customHooks/useApps';
 import Loading from '../components/Loading';
 import { useState } from 'react';
+import { useScrollToTop } from '../customHooks/useScrollToTop';
 
 const AppsPage = () => {
+    useScrollToTop();
     const [searchText, setSearchText]=useState("");
     const { data:apps, isLoading, error } = useApps();
         if (!apps || isLoading) {

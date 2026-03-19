@@ -5,8 +5,10 @@ import Loading from '../components/Loading';
 import FetchErrorComponent from '../components/FetchErrorComponent';
 import InstalledCard from '../components/InstalledCard';
 import SortDropdown from '../components/SortDropdown';
+import { useScrollToTop } from '../customHooks/useScrollToTop';
 
 const InstallationPage = () => {
+    useScrollToTop()
     const { installedIDs,sortBy,sortOrder } = useContext(AppsContext);
     const { data: apps, isLoading, error } = useApps();
     if (isLoading) return <Loading />

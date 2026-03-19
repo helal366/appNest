@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import logo from '../assets/logo.png';
+import { Link } from 'react-router';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-200 pt-10">
       <div className="container mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Brand / About */}
+        {/* about */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2 cursor-pointer">
             <img className="w-6 h-6" src={logo} alt="appNest logo" />
@@ -28,15 +29,15 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* quick links */}
         <div className="flex flex-col gap-2">
           <h3 className="font-semibold mb-2">Quick Links</h3>
-          <a href="/" className="hover:text-white transition-colors">Home</a>
-          <a href="/apps" className="hover:text-white transition-colors">Apps</a>
-          <a href="/installation" className="hover:text-white transition-colors">Installation</a>
+          <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <Link to="/apps" className="hover:text-white transition-colors">Apps</Link>
+          <Link to="/installation" className="hover:text-white transition-colors">Installation</Link>
         </div>
 
-        {/* Support */}
+        {/* support */}
         <div className="flex flex-col gap-2">
           <h3 className="font-semibold mb-2">Support</h3>
           <p className="hover:text-white transition-colors">Contact Us</p>
@@ -44,7 +45,7 @@ const Footer = () => {
           <p className="hover:text-white transition-colors">Privacy Policy</p>
         </div>
 
-        {/* Newsletter / Call to Action */}
+        {/* newsletter / call to action */}
         <div className="flex flex-col gap-2">
           <h3 className="font-semibold mb-2">Stay Updated</h3>
           <p className="text-gray-400 text-sm">Subscribe to our newsletter to get the latest updates on new apps and features.</p>
