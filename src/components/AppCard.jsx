@@ -7,7 +7,7 @@ const AppCard = ({ app }) => {
     return (
         <Link to={`/app_details/${id}`}>
             <div data-aos="zoom-in"
-            className="card bg-white shadow-sm px-5 pt-5 rounded hover:scale-102 cursor-pointer h-full duration-200">
+            className="card bg-white shadow-sm px-5 pt-5 rounded hover:scale-102 cursor-pointer h-full transition-all duration-200">
                 <figure className='bg-[#f1f1f1] '>
                     <img className='rounded object-cover object-top h-64'
                         src={image}

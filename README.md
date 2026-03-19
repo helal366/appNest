@@ -25,6 +25,9 @@ appNest is a modern React-based web application designed for building dynamic, r
 ### Notifications
 - Notiflix
 
+### Animations
+- AOS
+
 ### Development & Linting
 - Vite
 - ESLint
